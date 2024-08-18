@@ -11,12 +11,14 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper";
-
+import { WhatsAppOutlined } from '@ant-design/icons';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "./slider.css";
 import IconSection from "./IconSection";
+import { green } from "@mui/material/colors";
+import { Height } from "@mui/icons-material";
 
 const mySlider = [
   { text: "MEN", link: "src/images/banner-15.jpg" },
@@ -24,7 +26,13 @@ const mySlider = [
 ];
 
 const Hero = () => {
-  const theme = useTheme();
+    const theme = useTheme();
+    const handleWhatsAppClick = () => {
+        const phoneNumber = "+4917662315849"; // Replace with the target phone number
+        const message = "Hello! I would like to chat."; // Replace with your custom message
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, "_blank");
+      };
   return (
     <Container  >
       <Box sx={{pt: 2, mt: 2.5, display: "flex", alignItems: "center", gap: 2 }}>
@@ -149,21 +157,26 @@ const Hero = () => {
                 sx={{
                   color: "#FFFF00",
                   lineHeight: "16px",
-                  mt: 50,
+                    mt: 50,
+                  backgroundColor: "blue"
                 }}
               >
                 A style consultation will help you to express your personal style, boost your confidence and make choosing what to wear easy!
 
-              </Typography>
+                          </Typography>
+                          <Button onClick={handleWhatsAppClick}>
+                        
               <Typography
                 variant="h6"
                 sx={{
                   color: "#FF0000",
                 }}
               >
-               shop now
-              </Typography>
-
+                                  CALL now     
+                                  
+                              </Typography>
+                              <WhatsAppOutlined style={iconStyle} />
+</Button>
               <Link
                 sx={{
                   color: "#0000FF",
@@ -179,7 +192,7 @@ const Hero = () => {
                 href="#"
                 underline="none"
               >
-              Schedule A Call
+     
                 <ArrowForwardIcon sx={{ fontSize: "13px" }} />
               </Link>
             </Stack>
@@ -251,6 +264,21 @@ const Hero = () => {
       <IconSection />
     </Container>
   );
-};
 
+};
+const buttonStyle = {
+    backgroundColor: '#25D366', // WhatsApp green color
+    color: 'white',
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+    fontSize: '16px',
+};
+const iconStyle = {
+    fontSize: '20px',
+    marginRight: '8px',
+    color: "green",
+    Height: "20px"
+  };
 export default Hero;

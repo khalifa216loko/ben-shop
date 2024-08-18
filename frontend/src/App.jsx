@@ -1,47 +1,62 @@
-import Header2 from "./components/header/Header2";
-import Header1 from "./components/header/Header1";
-import Header3 from "./components/header/Header3";
-import { Box, CssBaseline, ThemeProvider } from "@mui/material";
-import { ColorModeContext, useMode } from "./theme";
-import Hero from "./components/hero/Hero";
-import Main from "./components/main/main";
-import Footer from "./components/footer/footer";
-import ScrollToTop from "./components/scroll/ScrollToTop";
 
-function App() {
-  const [theme, colorMode] = useMode();
+import React from "react";
+import { Col, Layout, Row } from "antd";
+import AppHeader from "./components/Appheader/Appheader";
+import AppRoutes from "./Routes";
+import AppFooter from "./components/footer/footer";
+import { ColorModeContext, useMode } from "./theme";
+import { Box, CssBaseline, ThemeProvider } from "@mui/material";
+const { Header, Content, Footer } = Layout;
+
+const App = () => {
+
+    const [theme, colorMode] = useMode();
   return (
     <ColorModeContext.Provider
     
-      value={colorMode}
+    value={colorMode}
+  >
+    <ThemeProvider
+      // @ts-ignore
+      theme={theme}
     >
-      <ThemeProvider
-        // @ts-ignore
-        theme={theme}
+      <CssBaseline />
+
+      
+      
+     
+
+      <Box
+        bgcolor={
+          // @ts-ignore
+          theme.palette.bg.main
+        }
       >
-        <CssBaseline />
-
-        <Header1 />
-        <Header2 />
-        <Header3 />
-
-        <Box
-          bgcolor={
-            // @ts-ignore
-            theme.palette.bg.main
-          }
-        >
-          <Hero />
-          <Main />
-        </Box>
-
-        <Footer />
-
-
-        <ScrollToTop />
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+      <Row gutter={[0, 32]}>
+        <Col span={24}>
+          <Header>
+            <AppHeader />
+          </Header>
+        </Col>
+        <Col span={22} offset={1}>
+          <Content>
+            <AppRoutes />
+              </Content>
+             
+          </Col>
+          <Col span={24}>
+          <Footer>
+          <AppFooter />
+          </Footer>
+        </Col>
+         
+                  </Row>
+                  
+                
+         </Box>       
+          </ThemeProvider>
+          
+      </ColorModeContext.Provider>
   );
-}
-
+};
 export default App;
