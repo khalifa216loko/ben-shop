@@ -21,8 +21,8 @@ import { green } from "@mui/material/colors";
 import { Height } from "@mui/icons-material";
 
 const mySlider = [
-  { text: "MEN", link: "src/images/banner-15.jpg" },
-  { text: "WOMEN", link: "src/images/banner25.webp" },
+  { text: "MEN", link: "./images/banner-15.jpg" },
+  { text: "WOMEN", link: "./images/banner25.webp" },
 ];
 
 const Hero = () => {
@@ -133,7 +133,7 @@ const Hero = () => {
 
         <Box sx={{ display: { xs: "none", md: "block", minWidth: "26.6%" } }}>
           <Box sx={{ position: "relative" }}>
-            <img width={"100%"} src="src/images/banner-17.jpg" alt="" />
+            <img width={"100%"} src="./images/banner-17.jpg" alt="" />
 
             <Stack
               sx={{
@@ -199,7 +199,7 @@ const Hero = () => {
           </Box>
 
           <Box sx={{ position: "relative" }}>
-            <img width={"100%"} src="src/images/banner-16.jpeg" alt="" />
+            <img width={"100%"} src="./images/banner-16.jpeg" alt="" />
             <Stack
               sx={{
                 position: "absolute",
